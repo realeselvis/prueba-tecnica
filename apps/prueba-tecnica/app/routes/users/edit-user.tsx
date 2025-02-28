@@ -1,5 +1,3 @@
-// apps/prueba-tecnica/app/routes/users/edit-user.tsx
-
 import { db } from "@repo/db";
 import { redirect, useLoaderData, Form } from "react-router";
 import { eq } from "drizzle-orm";
@@ -35,7 +33,7 @@ export const action = async ({ request, params }: { request: Request; params: { 
     return new Response("El formato del email es incorrecto", { status: 400 });
   }
 
-  // Validamos el teléfono, si se proporciona, que tenga entre 7 y 15 dígitos
+  // Validamos el teléfono, si aplica, que tenga entre 7 y 15 dígitos
   if (phone && !/^\d{7,15}$/.test(phone)) {
     return new Response("El teléfono debe contener entre 7 y 15 dígitos", { status: 400 });
   }
@@ -65,7 +63,7 @@ const EditUser = () => {
       <Form method="post" className="space-y-4">
         <div>
           <label className="block font-medium text-gray-700">
-            First Name:
+            Primer Nombre:
             <input
               type="text"
               name="firstName"
@@ -77,7 +75,7 @@ const EditUser = () => {
         </div>
         <div>
           <label className="block font-medium text-gray-700">
-            Last Name:
+            Apellido:
             <input
               type="text"
               name="lastName"
@@ -101,7 +99,7 @@ const EditUser = () => {
         </div>
         <div>
           <label className="block font-medium text-gray-700">
-            Phone:
+            Teléfono:
             <input
               type="text"
               name="phone"
