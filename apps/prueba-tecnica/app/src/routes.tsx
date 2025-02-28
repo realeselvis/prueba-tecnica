@@ -1,31 +1,37 @@
-// apps/prueba-tecnica/src/routes.tsx
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import UsersList from "./components/UsersList";
 import UserForm from "./components/UserForm";
 import NotFound from "./components/NotFound";
-// Importa Welcome (ajusta la ruta si es distinta)
 import { Welcome } from "../../app/welcome/welcome";
 
-console.log("UsersList:", UsersList);
+// Componente contenedor para rutas de usuarios
+const UsersLayout = () => {
+  return (
+    <div>
+      <h1>Usuarios</h1>
+      {/* Aquí se renderizan las rutas hijas */}
+      <Outlet />
+    </div>
+  );
+};
 
 const AppRoutes = () => {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Página principal en "/" */}
+        {/* Ruta principal */}
         <Route path="/" element={<Welcome />} />
-
-        {/* Listado de usuarios */}
-        <Route path="/users" element={<UsersList />} />
-
-        {/* Crear usuario */}
-        <Route path="/users/new" element={<UserForm mode="create" />} />
-
-        {/* Editar usuario */}
-        <Route path="/users/edit/:userId" element={<UserForm mode="edit" />} />
-
-        {/* Ruta comodín para páginas no encontradas */}
+        {/* Rutas anidadas para /users */}
+        <Route path="/users" element={<UsersLayout />}>
+          {/* Ruta índice: listado de usuarios */}
+          <Route index element={<UsersList />} />
+          {/* Ruta para crear usuario */}
+          <Route path="new" element={<UserForm mode="create" />} />
+          {/* Ruta para editar usuario */}
+          <Route path="edit/:userId" element={<UserForm mode="edit" />} />
+        </Route>
+        {/* Ruta comodín */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
