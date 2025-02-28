@@ -15,7 +15,9 @@
     "rootDirs": [".", "./.react-router/types"],
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./app/*"]
+      "~/*": ["./app/*"],
+      "@repo/db/schema": ["../../packages/db/drizzle/schema.ts"],
+      "@repo/db/*": ["../../packages/db/*"]
     },
     "esModuleInterop": true,
     "verbatimModuleSyntax": true,
