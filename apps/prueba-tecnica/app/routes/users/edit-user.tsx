@@ -1,8 +1,5 @@
 // apps/prueba-tecnica/app/routes/users/edit-user.tsx
 
-// Tengo un error: "No route matches URL '/users/edit/1'" al intentar editar un usuario.
-// ¿Podrías sugerirme cómo depurar o ajustar la configuración de rutas?
-// apps/prueba-tecnica/app/routes/users/edit-user.tsx
 import { db } from "@repo/db";
 import { redirect, useLoaderData, Form } from "react-router";
 import { eq } from "drizzle-orm";
