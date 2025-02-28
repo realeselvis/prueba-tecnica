@@ -22,12 +22,12 @@ export const action = async ({ request }: { request: Request }) => {
     return new Response("El formato del email es incorrecto", { status: 400 });
   }
 
-  // Validamos el teléfono si se proporciona, debe contener entre 7 y 15 dígitos
+  // Validamos el teléfono, si lo coloca, debe contener entre 7 y 15 dígitos
   if (phone && !/^\d{7,15}$/.test(phone)) {
     return new Response("El teléfono debe contener entre 7 y 15 dígitos", { status: 400 });
   }
 
-  // Intentamos insertar el nuevo usuario en la base de datos
+  // Insertar el nuevo usuario en la base de datos
   try {
     await db.insert(userTable).values({
       firstName,
@@ -47,11 +47,11 @@ export const action = async ({ request }: { request: Request }) => {
 const NewUser = () => {
   return (
     <div className="max-w-md mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Create New User</h1>
+      <h1 className="text-2xl font-bold mb-4">Crear Nuevo Usuario</h1>
       <Form method="post" className="space-y-4">
         <div>
           <label className="block font-medium text-gray-700">
-            First Name:
+            Primer Nombre:
             <input
               type="text"
               name="firstName"
@@ -62,7 +62,7 @@ const NewUser = () => {
         </div>
         <div>
           <label className="block font-medium text-gray-700">
-            Last Name:
+            Apellido:
             <input
               type="text"
               name="lastName"
@@ -73,7 +73,7 @@ const NewUser = () => {
         </div>
         <div>
           <label className="block font-medium text-gray-700">
-            Phone:
+            Teléfono:
             <input
               type="text"
               name="phone"
@@ -98,7 +98,7 @@ const NewUser = () => {
           type="submit"
           className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
         >
-          Create User
+          Crear Usuario
         </button>
       </Form>
     </div>

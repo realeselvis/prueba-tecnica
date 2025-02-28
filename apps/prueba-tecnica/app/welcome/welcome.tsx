@@ -52,7 +52,7 @@ export function Welcome() {
               to="/users"
               className="inline-block bg-blue-500 text-white py-2 px-4 rounded"
             >
-              Go to Users
+              USUARIOS
             </Link>
           </div>
         </div>

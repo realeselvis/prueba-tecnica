@@ -1,4 +1,3 @@
-// apps/prueba-tecnica/app/routes/users/users.tsx
 import { db } from '@repo/db';
 import { useLoaderData, Link } from 'react-router-dom';
 import TableUsers from "~/components/TableUsers";
